@@ -1,0 +1,650 @@
+/* ========================================
+   颂金楼官网 - 动画样式表（增强版）
+   对标老铺黄金：高端国风动效
+   ======================================== */
+
+/* === 基础 Keyframes === */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes scaleIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-60px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideInRight {
+    from { opacity: 0; transform: translateX(60px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+@keyframes floatDown {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(10px); }
+}
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* === 金色粒子闪烁 === */
+@keyframes goldParticle1 {
+    0% { transform: translate(0, 0) scale(1); opacity: 0; }
+    10% { opacity: 0.8; }
+    90% { opacity: 0; }
+    100% { transform: translate(120px, -200px) scale(0); opacity: 0; }
+}
+@keyframes goldParticle2 {
+    0% { transform: translate(0, 0) scale(1); opacity: 0; }
+    15% { opacity: 0.6; }
+    85% { opacity: 0; }
+    100% { transform: translate(-80px, -250px) scale(0); opacity: 0; }
+}
+@keyframes goldParticle3 {
+    0% { transform: translate(0, 0) scale(1); opacity: 0; }
+    12% { opacity: 0.7; }
+    88% { opacity: 0; }
+    100% { transform: translate(60px, -180px) scale(0); opacity: 0; }
+}
+
+/* === 金色光晕呼吸 === */
+@keyframes goldBreath {
+    0%, 100% { box-shadow: 0 0 20px rgba(139, 115, 85, 0.1), 0 0 40px rgba(139, 115, 85, 0.05); }
+    50% { box-shadow: 0 0 30px rgba(139, 115, 85, 0.25), 0 0 60px rgba(196, 168, 130, 0.12); }
+}
+
+/* === 进度条流动 === */
+@keyframes progressFlow {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+}
+
+/* === 波纹扩散 === */
+@keyframes ripple {
+    0% { transform: scale(0); opacity: 0.6; }
+    100% { transform: scale(2.5); opacity: 0; }
+}
+
+/* === 旋转缓动 === */
+@keyframes slowRotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* === 文字渐现（打字机感） === */
+@keyframes textReveal {
+    from { clip-path: inset(0 100% 0 0); }
+    to { clip-path: inset(0 0 0 0); }
+}
+
+/* === 下划线延伸 === */
+@keyframes lineExtend {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+}
+
+/* === 卡片悬浮 === */
+@keyframes cardFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+
+/* === Shimmer 流光 === */
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+/* === 金色文字流光 === */
+@keyframes goldShimmer {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* === 脉冲点 === */
+@keyframes pulseDot {
+    0% { box-shadow: 0 0 0 0 rgba(196, 168, 130, 0.6); }
+    70% { box-shadow: 0 0 0 12px rgba(196, 168, 130, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(196, 168, 130, 0); }
+}
+
+/* === 边框流光 === */
+@keyframes borderGlow {
+    0% { border-color: rgba(139, 115, 85, 0.3); }
+    50% { border-color: rgba(196, 168, 130, 0.8); }
+    100% { border-color: rgba(139, 115, 85, 0.3); }
+}
+
+/* =============================================
+   Reveal 滚动触发系统
+   ============================================= */
+.reveal { opacity: 0; transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+.reveal.active { opacity: 1; }
+
+.reveal-up {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.reveal-up.active { opacity: 1; transform: translateY(0); }
+
+.reveal-down {
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.reveal-down.active { opacity: 1; transform: translateY(0); }
+
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-60px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.reveal-left.active { opacity: 1; transform: translateX(0); }
+
+.reveal-right {
+    opacity: 0;
+    transform: translateX(60px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.reveal-right.active { opacity: 1; transform: translateX(0); }
+
+.reveal-scale {
+    opacity: 0;
+    transform: scale(0.85);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.reveal-scale.active { opacity: 1; transform: scale(1); }
+
+.reveal-rotate {
+    opacity: 0;
+    transform: rotateY(15deg) translateZ(-20px);
+    transition: all 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.reveal-rotate.active { opacity: 1; transform: rotateY(0) translateZ(0); }
+
+/* 延迟变体 */
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+.delay-5 { transition-delay: 0.5s; }
+.delay-6 { transition-delay: 0.6s; }
+.delay-7 { transition-delay: 0.7s; }
+.delay-8 { transition-delay: 0.8s; }
+
+/* =============================================
+   Hero 主视觉动画
+   ============================================= */
+.hero-tag {
+    animation: fadeInDown 1s ease forwards;
+}
+.hero-title {
+    animation: fadeInUp 1s ease 0.25s forwards;
+    opacity: 0;
+}
+.hero-slogan {
+    animation: fadeInUp 1s ease 0.5s forwards;
+    opacity: 0;
+}
+.hero-cta {
+    animation: fadeInUp 1s ease 0.75s forwards;
+    opacity: 0;
+}
+
+/* Hero 金色粒子 */
+.hero-particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+.hero-particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: var(--gold-light);
+    border-radius: 50%;
+    animation-timing-function: ease-out;
+    animation-iteration-count: infinite;
+}
+.hero-particle:nth-child(1) { left: 20%; bottom: 30%; animation: goldParticle1 5s 0s infinite; }
+.hero-particle:nth-child(2) { left: 35%; bottom: 40%; animation: goldParticle2 6s 1s infinite; }
+.hero-particle:nth-child(3) { left: 50%; bottom: 25%; animation: goldParticle3 4.5s 0.5s infinite; }
+.hero-particle:nth-child(4) { left: 65%; bottom: 35%; animation: goldParticle1 5.5s 2s infinite; }
+.hero-particle:nth-child(5) { left: 75%; bottom: 45%; animation: goldParticle2 7s 1.5s infinite; }
+.hero-particle:nth-child(6) { left: 40%; bottom: 20%; animation: goldParticle3 5s 3s infinite; }
+.hero-particle:nth-child(7) { left: 55%; bottom: 50%; animation: goldParticle1 6.5s 0.8s infinite; }
+.hero-particle:nth-child(8) { left: 30%; bottom: 55%; animation: goldParticle2 4.8s 2.5s infinite; }
+
+/* Hero 装饰圆环 */
+.hero-rings {
+    position: absolute;
+    pointer-events: none;
+}
+.hero-ring {
+    position: absolute;
+    border: 1px solid rgba(196, 168, 130, 0.15);
+    border-radius: 50%;
+    animation: slowRotate 30s linear infinite;
+}
+.hero-ring:nth-child(1) {
+    width: 600px; height: 600px;
+    top: -200px; right: -150px;
+    animation-duration: 40s;
+}
+.hero-ring:nth-child(2) {
+    width: 400px; height: 400px;
+    bottom: -100px; left: -100px;
+    animation-duration: 35s;
+    animation-direction: reverse;
+}
+.hero-ring:nth-child(3) {
+    width: 300px; height: 300px;
+    top: 50%; left: 10%;
+    animation-duration: 25s;
+    border-style: dashed;
+}
+
+/* =============================================
+   页面标题区动画
+   ============================================= */
+.page-hero-content h1 {
+    animation: fadeInUp 0.8s ease forwards;
+}
+.page-hero-content p {
+    animation: fadeInUp 0.8s ease 0.25s forwards;
+    opacity: 0;
+}
+.page-hero-content .ir-quick-links {
+    animation: fadeInUp 0.8s ease 0.5s forwards;
+    opacity: 0;
+}
+
+/* =============================================
+   卡片 3D Tilt 效果（JS驱动）
+   ============================================= */
+.tilt-card {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transition: transform 0.1s ease-out;
+}
+.tilt-card-inner {
+    transition: transform 0.3s ease-out;
+}
+
+/* =============================================
+   Hover 悬浮效果增强
+   ============================================= */
+.value-card, .capital-card, .ops-card, .ip-card, .team-card,
+.franchise-card, .download-card, .ir-contact-card, .channel-card,
+.after-sales-card, .contact-location-card, .cultural-card, .model-card, .phase-card {
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* 金色光晕 hover */
+.glow-hover {
+    position: relative;
+    overflow: hidden;
+}
+.glow-hover::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(196, 168, 130, 0.15) 0%,
+        transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+    z-index: 1;
+}
+.glow-hover:hover::before {
+    opacity: 1;
+}
+
+/* 卡片上浮 + 阴影 */
+.card-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+}
+
+/* 箭头右移动画 */
+.link-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: gap 0.3s;
+}
+.link-arrow:hover {
+    gap: 10px;
+}
+
+/* 按钮光效 */
+.btn-shine {
+    position: relative;
+    overflow: hidden;
+}
+.btn-shine::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+        transparent,
+        rgba(255, 255, 255, 0.15),
+        transparent);
+    transition: left 0.6s;
+}
+.btn-shine:hover::after {
+    left: 100%;
+}
+
+/* =============================================
+   里程碑时间线动画
+   ============================================= */
+.timeline-item {
+    transition: all 0.4s ease;
+}
+.timeline-item.reveal-left {
+    opacity: 0;
+    transform: translateX(-30px);
+}
+.timeline-item.reveal-left.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+.timeline-item.active .timeline-year {
+    color: var(--gold-light);
+    font-weight: 700;
+}
+.timeline-item.active::before {
+    animation: pulseDot 2s infinite;
+}
+
+/* 里程碑迷你进度条动画 */
+.milestone-item .dot {
+    transition: all 0.3s ease;
+}
+.milestone-item.active .dot {
+    animation: pulseDot 2s infinite;
+}
+
+/* =============================================
+   架构图动画
+   ============================================= */
+.struct-node {
+    transition: all 0.4s ease;
+}
+.struct-node:hover {
+    border-color: var(--gold-light);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(139, 115, 85, 0.15);
+}
+.struct-node.top:hover {
+    animation: goldBreath 3s ease infinite;
+}
+
+/* 架构图连线动画 */
+.struct-line {
+    position: relative;
+}
+.struct-line::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--gold-light), transparent);
+    animation: progressFlow 3s ease infinite;
+    background-size: 200% 200%;
+}
+
+/* =============================================
+   数字递增动画
+   ============================================= */
+.count-up {
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+.count-up.animated {
+    animation: countUpBounce 0.6s ease forwards;
+}
+@keyframes countUpBounce {
+    0% { opacity: 0; transform: translateY(20px) scale(0.8); }
+    60% { transform: translateY(-4px) scale(1.05); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* =============================================
+   系列产品卡片悬浮
+   ============================================= */
+.product-card {
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.product-card:hover .product-placeholder {
+    transform: scale(1.05);
+}
+.product-placeholder {
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* 产品图上的金色装饰线 */
+.product-img::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 60%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-light), transparent);
+    transition: transform 0.5s ease;
+}
+.product-card:hover .product-img::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
+/* =============================================
+   Loading shimmer（预留板块） 
+   ============================================= */
+.placeholder-section {
+    position: relative;
+    overflow: hidden;
+}
+.placeholder-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.3) 50%,
+        transparent 100%);
+    background-size: 200% 100%;
+    animation: shimmer 3s infinite;
+    pointer-events: none;
+}
+
+/* =============================================
+   导航栏动画
+   ============================================= */
+.nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    width: 0;
+    height: 1px;
+    background: var(--gold-light);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+.nav a:hover::after,
+.nav a.active::after {
+    width: 100%;
+}
+
+/* 导航栏出现/隐藏 */
+.header {
+    transition: transform 0.4s ease, background 0.4s ease;
+}
+.header.hidden {
+    transform: translateY(-100%);
+}
+
+/* 移动端菜单 */
+.nav.mobile-open {
+    animation: slideDown 0.3s ease forwards;
+}
+
+/* =============================================
+   底部 CTA 动画
+   ============================================= */
+.cta-section {
+    position: relative;
+    overflow: hidden;
+}
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at center,
+        rgba(139, 115, 85, 0.06) 0%,
+        transparent 50%);
+    animation: slowRotate 60s linear infinite;
+    pointer-events: none;
+}
+
+/* =============================================
+   IR 快速入口按钮
+   ============================================= */
+.ir-quick-btn {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+.ir-quick-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(139, 115, 85, 0.1);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+.ir-quick-btn:hover::before {
+    transform: scaleX(1);
+}
+
+/* =============================================
+   表单交互动画
+   ============================================= */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    animation: borderGlow 2s ease infinite;
+}
+
+.channel-form input:focus,
+.channel-form textarea:focus {
+    animation: borderGlow 2s ease infinite;
+}
+
+/* 提交成功动画 */
+.btn-primary.success {
+    background: linear-gradient(135deg, #5a8a4a, #7ab86a) !important;
+    animation: successPulse 0.5s ease;
+}
+@keyframes successPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* =============================================
+   品牌 Logo 动画
+   ============================================= */
+.logo-icon {
+    transition: all 0.3s ease;
+}
+.logo:hover .logo-icon {
+    transform: rotate(-5deg) scale(1.05);
+    box-shadow: 0 4px 15px rgba(139, 115, 85, 0.3);
+}
+
+/* =============================================
+   页面切换过渡
+   ============================================= */
+.page-transition {
+    animation: pageIn 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+@keyframes pageIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* =============================================
+   金色文字流光
+   ============================================= */
+.gold-shimmer {
+    background: linear-gradient(135deg,
+        var(--gold-dark) 0%,
+        var(--gold-light) 30%,
+        var(--gold-pale) 50%,
+        var(--gold-light) 70%,
+        var(--gold-dark) 100%);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: goldShimmer 3s ease infinite;
+}
+
+/* =============================================
+   鼠标跟随光点（JS驱动）
+   ============================================= */
+.cursor-glow {
+    position: fixed;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle,
+        rgba(196, 168, 130, 0.08) 0%,
+        transparent 70%);
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s;
+}
+
+/* =============================================
+   Print 样式
+   ============================================= */
+@media print {
+    .header, .footer, .hero-scroll, .mobile-menu-btn,
+    .hero-particles, .hero-rings, .cursor-glow {
+        display: none;
+    }
+    body { color: #000; }
+    .section-dark { background: #fff; color: #000; }
+}
