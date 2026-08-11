@@ -1,0 +1,18 @@
+{
+  "headquarters": {
+    "address": "香港中环金融街8号国际金融中心",
+    "phone": "+852 XXXX XXXX",
+    "email": "info@songjinlou.com"
+  },
+  "mainland": {
+    "address": "深圳市罗湖区水贝珠宝产业园区",
+    "phone": "400-XXX-XXXX",
+    "email": "info@songjinlou.com"
+  },
+  "channels": {
+    "consumer": { "phone": "401-XXX-XXXX", "email": "service@songjinlou.com", "hours": "工作日 09:00-18:00" },
+    "franchise": { "phone": "400-XXX-XXXX", "email": "join@songjinlou.com" },
+    "capital": { "phone": "+852 XXXX XXXX", "email": "ir@songjinlou.com" },
+    "afterSales": { "phone": "400-XXX-XXXX", "title": "无忧服务 · 终身守护" }
+  }
+}
